@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Wayang Digital — Pagelaran wayang kulit digital interaktif karya SMK Taruna Jaya Prawira Tuban." />
+    <title>Wayang Digital — SMK Taruna Jaya Prawira Tuban</title>
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <link rel="alternate icon" href="favicon.ico" />
+    <link rel="stylesheet" href="styles.css?v=24" />
+  </head>
+  <body>
+    <canvas id="stage" aria-label="Panggung wayang kulit"></canvas>
+    <video id="video" playsinline muted></video>
+
+    <!-- Watermark / Brand Badge Strategis di Sudut Kiri Atas Panggung -->
+    <aside id="brand-badge" class="brand-badge" aria-label="Identitas Aplikasi">
+      <img src="assets/logo.png" alt="Logo SMK Taruna Jaya Prawira Tuban" class="brand-logo" />
+      <div class="brand-info">
+        <span class="brand-title">Wayang Digital</span>
+        <span class="brand-sub">SMK Taruna Jaya Prawira Tuban</span>
+      </div>
+    </aside>
+
+    <section id="intro" class="panel intro">
+      <div class="intro-brand">
+        <img src="assets/logo.png" alt="Logo SMK Taruna Jaya Prawira Tuban" class="intro-logo" />
+        <div class="intro-brand-text">
+          <p class="eyebrow">SMK Taruna Jaya Prawira Tuban</p>
+          <h1 class="intro-title">Wayang Digital</h1>
+        </div>
+      </div>
+      <p class="intro-tagline">Pagelaran Wayang Kulit Interaktif Berbasis AI</p>
+      <p class="lede">Jadilah dalang di panggung digital. Gerakkan kedua tangan di depan kamera untuk menghidupkan wayang di atas kelir.</p>
+      <ul class="howto">
+        <li><span class="k">Kedua tangan</span><span>Tangan kiri menggerakkan Raden Bima, tangan kanan menggerakkan Prabu Rahwana.</span></li>
+        <li><span class="k">Telapak tangan</span><span>Pengendali badan (gapit). Wayang mengikuti tangan; <strong>balikkan telapak tangan</strong> untuk memutar hadap wayang.</span></li>
+        <li><span class="k">Jempol &amp; kelingking</span><span>Pengendali lengan (tuding). Buka, angkat, atau gerakkan kedua jari.</span></li>
+        <li><span class="k">Miringkan tangan</span><span>Wayang ikut memiringkan badannya.</span></li>
+        <li><span class="k">Dekati kamera</span><span>Bayangan wayang menjadi lebih besar dan lembut.</span></li>
+        <li><span class="k">Jari kelingking</span><span>Angkat hanya kelingking untuk memainkan tari kiprahan mengikuti irama gamelan.</span></li>
+      </ul>
+      <div class="actions">
+        <button id="start-camera" class="btn primary">Mulai kamera</button>
+        <button id="use-mouse" class="btn">Gunakan mouse</button>
+      </div>
+      <p id="intro-status" class="status-line" role="status"></p>
+    </section>
+
+    <div id="hud" class="hud">
+      <div class="pill" id="status"><span class="dot"></span><span id="status-text">Demo</span></div>
+      <p class="keys"><kbd>J</kbd><kbd>L</kbd> aji-aji <kbd>B</kbd> babak kelir <kbd>D</kbd> menari <kbd>K</kbd> gunungan <kbd>R</kbd> rekam <kbd>Z</kbd> cempala <kbd>X</kbd> kecrek <kbd>F</kbd><kbd>G</kbd> putar wayang <kbd>H</kbd> sembunyikan <kbd>M</kbd> musik</p>
+    </div>
+
+    <div id="record-badge" class="record-badge" hidden>
+      <span class="rec-blink"></span>
+      <span id="record-time">00:00</span> · REC
+    </div>
+
+    <button id="kasekten-toggle" class="icon-btn kasekten-btn" aria-label="Aji-Aji Pusaka Sakti (J)" title="Aji-Aji Kasekten (J / L)">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M11 21h-1l1-7H7.5c-.88 0-.33-.75-.31-.78C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.13-5.9 10.36Z"/></svg>
+    </button>
+    <button id="atmosphere-toggle" class="icon-btn atmosphere-btn" aria-label="Ganti Suasana Kelir (B)" title="Ganti Suasana Kelir (B)">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8Zm0-14a6 6 0 0 0 0 12V6Z"/></svg>
+    </button>
+    <button id="record-toggle" class="icon-btn record-btn" aria-label="Mulai rekam pertunjukan (R)" title="Rekam Pertunjukan (R)">
+      <svg class="rec-idle" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="7" fill="#ff4d4d"/></svg>
+      <svg class="rec-active" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2" fill="#ff4d4d"/></svg>
+    </button>
+    <button id="sound-toggle" class="icon-btn sound-btn" aria-label="Mute musik" aria-pressed="false">
+      <svg class="on" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4Zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4Zm-2.5-8.8v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6Z"/></svg>
+      <svg class="off" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4Zm12.6 3 2.7-2.7-1.4-1.4-2.7 2.7-2.7-2.7-1.4 1.4 2.7 2.7-2.7 2.7 1.4 1.4 2.7-2.7 2.7 2.7 1.4-1.4-2.7-2.7Z" transform="translate(2 0)"/></svg>
+    </button>
+    <button id="settings-toggle" class="icon-btn" aria-label="Pengaturan" aria-expanded="false">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M19.4 13a7.6 7.6 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.3 7.3 0 0 0-1.7-1L15 3h-4l-.4 2.7a7.3 7.3 0 0 0-1.7 1l-2.5-1-2 3.5L6.6 11a7.6 7.6 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7.3 7.3 0 0 0 1.7 1L11 21h4l.4-2.7a7.3 7.3 0 0 0 1.7-1l2.5 1 2-3.5ZM13 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z" transform="translate(-1 0)"/></svg>
+    </button>
+
+    <aside id="settings" class="panel settings" hidden>
+      <h2>Pengaturan</h2>
+      <label>Jumlah wayang
+        <select id="opt-characters">
+          <option value="two">Dua wayang, satu per tangan</option>
+          <option value="one">Satu wayang</option>
+        </select>
+      </label>
+      <label>Wayang tangan kiri
+        <select id="opt-char-left">
+          <option value="bima" selected>Raden Bima (Perkasa)</option>
+          <option value="rahwana">Prabu Rahwana (Antagonis)</option>
+          <option value="arjuna">Raden Arjuna (Halus)</option>
+        </select>
+      </label>
+      <label id="char-right-row">Wayang tangan kanan
+        <select id="opt-char-right">
+          <option value="rahwana" selected>Prabu Rahwana (Antagonis)</option>
+          <option value="bima">Raden Bima (Perkasa)</option>
+          <option value="arjuna">Raden Arjuna (Halus)</option>
+        </select>
+      </label>
+      <label>Gunungan (Kayon)
+        <select id="opt-gunungan">
+          <option value="center">Tancep Tengah (Panggung Tertutup)</option>
+          <option value="side">Tancep Sisi (Panggung Terbuka)</option>
+          <option value="hidden">Sembunyikan</option>
+        </select>
+      </label>
+      <button id="opt-bedhol" class="btn small" type="button">Bedhol / Tancep Kayon (K)</button>
+      <label>Jari pengendali lengan
+        <select id="opt-fingers">
+          <option value="thumb-pinky" selected>Jempol + kelingking</option>
+          <option value="thumb-index">Jempol + telunjuk</option>
+          <option value="index-middle">Telunjuk + jari tengah</option>
+          <option value="index-pinky">Telunjuk + kelingking</option>
+        </select>
+      </label>
+      <label id="bodyhand-row" hidden>Tangan pengendali badan
+        <select id="opt-bodyhand">
+          <option value="right">Tangan kanan memegang gapit</option>
+          <option value="left">Tangan kiri memegang gapit</option>
+        </select>
+      </label>
+      <label>Arah hadap
+        <select id="opt-facing">
+          <option value="target">Saling berhadapan</option>
+          <option value="walk">Mengikuti arah gerakan</option>
+          <option value="manual">Manual (F / G untuk memutar)</option>
+        </select>
+      </label>
+      <label class="row"><input type="checkbox" id="opt-camera" checked /> Show kamera preview</label>
+      <button id="opt-popout" class="btn small" type="button">Open kamera in new window</button>
+      <label>Suasana Kelir (Tata Lampu)
+        <select id="opt-atmosphere">
+          <option value="classic">Blencong Klasik (Minyak Kelapa Hangat)</option>
+          <option value="war">Perang Baratayuda (Senja Merah Membara)</option>
+          <option value="mystic">Wengi Tirakat (Malam Mistik Purnama)</option>
+        </select>
+      </label>
+      <button id="opt-kasekten" class="btn small" type="button">Lepaskan Aji-Aji Pusaka Sakti (J)</button>
+      <label>Ukuran wayang
+        <input type="range" id="opt-size" min="0.36" max="0.72" step="0.01" value="0.53" />
+      </label>
+      <label>Volume musik
+        <input type="range" id="opt-volume" min="0" max="1" step="0.01" value="0.6" />
+      </label>
+      <label>Volume suara dalang (Kecrek &amp; Cempala)
+        <input type="range" id="opt-sfx-volume" min="0" max="1" step="0.01" value="0.75" />
+      </label>
+      <label class="row">
+        <input type="checkbox" id="opt-sfx-auto" checked /> Suara otomatis saat gerak &amp; benturan
+      </label>
+      <div class="settings-brand-footer">
+        <img src="assets/logo.png" alt="Logo SMK Taruna Jaya Prawira Tuban" class="settings-logo" />
+        <div class="settings-brand-text">
+          <strong>Wayang Digital</strong>
+          <span>SMK Taruna Jaya Prawira Tuban</span>
+        </div>
+      </div>
+    </aside>
+
+    <div id="preview-box" hidden>
+      <canvas id="preview" width="320" height="180"></canvas>
+      <button id="preview-popout" class="popout-btn" type="button" aria-label="Open kamera in a new window" title="Buka di jendela baru (P)">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M14 3h7v7h-2V6.4l-8.3 8.3-1.4-1.4L17.6 5H14V3ZM5 5h6v2H5v12h12v-6h2v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></svg>
+      </button>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div id="error" class="panel error" hidden></div>
+
+    <div id="record-modal" class="modal-backdrop" hidden>
+      <div class="panel record-panel">
+        <div class="modal-header">
+          <div class="modal-title-wrap">
+            <img src="assets/logo.png" alt="Logo SMK Taruna Jaya Prawira Tuban" class="modal-logo" />
+            <div>
+              <h2>Rekaman Pertunjukan Dalang</h2>
+              <span class="modal-sub">Wayang Digital · SMK Taruna Jaya Prawira Tuban</span>
+            </div>
+          </div>
+          <button id="modal-close-btn" class="icon-btn modal-close" aria-label="Tutup preview">&times;</button>
+        </div>
+        <video id="record-preview" controls playsinline preload="metadata"></video>
+        <div class="record-meta">
+          <span id="record-meta-duration">Durasi: 00:00</span>
+          <span id="record-meta-size">Ukuran: 0 MB</span>
+        </div>
+        <div class="actions">
+          <button id="btn-download-record" class="btn primary" type="button">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" style="vertical-align: -2px; margin-right: 6px;"><path fill="currentColor" d="M19 9h-4V3H9v6H5l7 7 7-7ZM5 18v2h14v-2H5Z"/></svg>
+            Unduh Video (.webm)
+          </button>
+          <button id="btn-close-record" class="btn" type="button">Tutup</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="src/main.js?v=24"></script>
+  </body>
+</html>

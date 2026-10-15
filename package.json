@@ -1,0 +1,28 @@
+{
+  "name": "wayang-digital",
+  "version": "1.0.0",
+  "description": "Pagelaran Wayang Kulit Interaktif Berbasis AI (100% Offline) - SMK Taruna Jaya Prawira Tuban",
+  "main": "server.py",
+  "scripts": {
+    "start": "python server.py",
+    "serve": "npx serve web -p 8089",
+    "dev": "python server.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smktjptuban/wayang-digital.git"
+  },
+  "keywords": [
+    "wayang",
+    "wayang-kulit",
+    "mediapipe",
+    "hand-tracking",
+    "webgl",
+    "computer-vision",
+    "cultural-heritage",
+    "indonesia",
+    "smk-taruna-jaya-prawira-tuban"
+  ],
+  "author": "SMK Taruna Jaya Prawira Tuban",
+  "license": "MIT"
+}

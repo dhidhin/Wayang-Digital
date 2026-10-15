@@ -1,0 +1,58 @@
+================================================================================
+WAYANG DIGITAL - SMK TARUNA JAYA PRAWIRA TUBAN
+Pagelaran Wayang Kulit Interaktif Berbasis AI (100% Offline)
+================================================================================
+
+CARA CEPAT MENJALANKAN (WINDOWS)
+1. Ekstrak SEMUA isi berkas ZIP (misal ke D:\Wayang-Digital-Offline-Windows).
+2. Klik dua kali berkas 'MULAI-WAYANG.bat'.
+   - Tidak perlu menginstal Python atau Node.js jika menggunakan paket rilis.
+   - Jika Anda clone dari GitHub tanpa folder runtime, pasang Python 3.9+.
+3. Peramban Microsoft Edge atau Google Chrome akan terbuka secara otomatis.
+   (Jika tidak terbuka otomatis, buka http://127.0.0.1:8089/ di browser).
+4. Klik tombol 'Mulai kamera' dan pilih 'Izinkan / Allow' pada jendela izin kamera.
+5. Posisikan tangan Anda di depan kamera dengan pencahayaan ruangan yang cukup.
+6. Selesai bermain: tutup tab panggung dan tekan Ctrl+C di jendela terminal server.
+
+CATATAN PENTING:
+- Jangan membuka file 'web/index.html' secara langsung (klik ganda file HTML).
+  Aplikasi ini menggunakan modul JavaScript ES dan WebGL/WASM AI yang memerlukan
+  server HTTP lokal. Launcher 'MULAI-WAYANG.bat' otomatis menanganinya.
+- Jangan menjalankan berkas .BAT dari dalam pratinjau file ZIP sebelum diekstrak!
+
+100% OFFLINE & PRIVASI TERJAGA
+- Model kecerdasan buatan MediaPipe hand tracking, WebAssembly, aset gambar, dan
+  musik gamelan tersimpan lokal di komputer.
+- Tidak memerlukan koneksi internet, akun, API key, atau cloud eksternal.
+- Gambar kamera diproses sepenuhnya di komputer Anda dan tidak dikirim ke internet.
+- Server lokal hanya menerima sambungan dari komputer sendiri (127.0.0.1).
+
+PANDUAN KENDALI DALANG
+- Tangan Kiri Dalang : Mengendalikan wayang kiri (Default: Raden Bima).
+- Tangan Kanan Dalang: Mengendalikan wayang kanan (Default: Prabu Rahwana).
+- Gerakan Badan     : Geser telapak tangan (atas, bawah, kiri, kanan).
+- Hadap Wayang      : Balikkan telapak tangan (menghadap/membelakangi kamera).
+- Kedekatan Layar   : Maju/mundurkan tangan untuk efek bayangan kelir dinamis.
+- Gerakan Lengan    :
+  * Jempol     -> Menggerakkan lengan depan (forearm / tuding depan).
+  * Kelingking -> Menggerakkan lengan belakang (forearm / tuding belakang).
+
+TOMBOL PINTAS KEYBOARD
+- [Spasi] : Tancapkan / cabut Gunungan (Buka / Tutup Pagelaran).
+- [M]     : Hidupkan / matikan alunan musik gamelan.
+- [B]     : Ganti suasana kelir (Siang Cerah, Senja, Malam Gulita).
+- [J]     : Lepaskan jurus Kasekten / Aji-aji Wayang Kiri (Bima).
+- [L]     : Lepaskan jurus Kasekten / Aji-aji Wayang Kanan (Rahwana).
+- [R]     : Rekam pertunjukan lakon Dalang ke format video WebM.
+- [H]     : Sembunyikan / Tampilkan panel antarmuka dalang (layar bersih).
+- [F]     : Layar penuh (Fullscreen).
+- [C]     : Buka pratinjau kamera di jendela terpisah.
+
+GERAK OTOMATIS SAAT DALANG DIAM (IDLE AUTO-MOTION)
+Jika tangan dalang tidak berada di depan kamera selama beberapa saat,
+kedua wayang akan secara cerdas menari dan melangkah mengikuti ketukan
+ritmis musik gamelan dengan gaya gerak unik masing-masing tokoh.
+
+KREDIT & HAK CIPTA
+Dikembangkan oleh: SMK Taruna Jaya Prawira Tuban (2026)
+Aplikasi didedikasikan untuk pelestarian budaya adiluhung Nusantara.

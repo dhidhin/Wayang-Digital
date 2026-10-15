@@ -1,0 +1,37 @@
+# ==============================================================================
+# Wayang Digital - .gitattributes
+# Normalize line endings and declare binary assets
+# ==============================================================================
+
+# Default auto-normalization
+* text=auto
+
+# Windows launcher scripts (must use CRLF)
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Shell scripts
+*.sh text eol=lf
+
+# Source code & configs
+*.js text eol=lf
+*.mjs text eol=lf
+*.json text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.txt text eol=crlf
+
+# Binary assets (prevent corruptions)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.mp3 binary
+*.wasm binary
+*.task binary
+*.exe binary
+*.dll binary
+*.pyd binary
+*.zip binary

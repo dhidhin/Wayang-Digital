@@ -1,0 +1,46 @@
+# ==============================================================================
+# Wayang Digital - .gitignore
+# SMK Taruna Jaya Prawira Tuban
+# ==============================================================================
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.DS_Store
+._*
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.spec
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+.gemini/
+.system_generated/
+
+# Video recordings from the app
+*.webm
+*.mp4
+recordings/
+
+# Logs & temp files
+*.log
+tmp/
+scratch/
+
+# Node / npm
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# Optional: Uncomment the line below if you wish to exclude the embedded Python runtime
+# from being pushed to GitHub (MULAI-WAYANG.bat will fall back to system Python):
+# runtime/
