@@ -4,7 +4,7 @@ Pagelaran Wayang Kulit Interaktif Berbasis AI (100% Offline)
 ================================================================================
 
 CARA CEPAT MENJALANKAN (WINDOWS)
-1. Ekstrak SEMUA isi berkas ZIP (misal ke D:\Wayang-Digital-Offline-Windows).
+1. Ekstrak SEMUA isi berkas ZIP (misal ke D:\Wayang-Digital).
 2. Klik dua kali berkas 'MULAI-WAYANG.bat'.
    - Tidak perlu menginstal Python atau Node.js jika menggunakan paket rilis.
    - Jika Anda clone dari GitHub tanpa folder runtime, pasang Python 3.9+.

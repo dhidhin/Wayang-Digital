@@ -13,50 +13,57 @@
 
 ## 🌟 Sekilas Tentang Aplikasi
 
-**Wayang Digital** adalah perangkat lunak panggung wayang kulit interaktif yang memungkinkan siapa saja menjadi dalang secara langsung di depan komputer. Menggunakan kamera web (*webcam*) biasa, kecerdasan buatan (*AI Computer Vision*) melacak posisi kedua tangan dalang secara *real-time* untuk menggerakkan badan (*gapit*) dan kedua lengan (*tuding*) wayang di atas kelir digital beresolusi tinggi, diiringi alunan musik gamelan Jawa autentik serta efek suara keprak/cempala.
+**Wayang Digital** adalah perangkat lunak panggung wayang kulit interaktif yang memungkinkan siapa saja menjadi dalang secara langsung di depan komputer. Menggunakan kamera web (_webcam_) biasa, kecerdasan buatan (_AI Computer Vision_) melacak posisi kedua tangan dalang secara _real-time_ untuk menggerakkan badan (_gapit_) dan kedua lengan (_tuding_) wayang di atas kelir digital beresolusi tinggi, diiringi alunan musik gamelan Jawa autentik serta efek suara keprak/cempala.
 
-Aplikasi ini dirancang **100% luring (offline)** tanpa ketergantungan internet, tanpa *cloud*, dan tanpa memerlukan instalasi perangkat lunak yang rumit.
+Aplikasi ini dirancang **100% luring (offline)** tanpa ketergantungan internet, tanpa _cloud_, dan tanpa memerlukan instalasi perangkat lunak yang rumit.
 
 ---
 
 ## ✨ Fitur-Fitur Utama
 
-### 1. 🤖 Pelacakan Tangan AI Offline (*Real-time Hand Tracking*)
+### 1. 🤖 Pelacakan Tangan AI Offline (_Real-time Hand Tracking_)
+
 - Menggunakan model **MediaPipe Vision (Google)** yang berjalan secara lokal via WebAssembly (WASM).
-- **Tangan Kiri**: Mengendalikan wayang kiri (*Default:* **Raden Bima**).
-- **Tangan Kanan**: Mengendalikan wayang kanan (*Default:* **Prabu Rahwana**).
-- **Pengendali Gapit (Badan)**: Mengikuti gerakan telapak tangan, kemiringan tangan (*tilt*), dan kedekatan dengan kamera (bayangan kelir menjadi lebih besar dan lembut).
+- **Tangan Kiri**: Mengendalikan wayang kiri (_Default:_ **Raden Bima**).
+- **Tangan Kanan**: Mengendalikan wayang kanan (_Default:_ **Prabu Rahwana**).
+- **Pengendali Gapit (Badan)**: Mengikuti gerakan telapak tangan, kemiringan tangan (_tilt_), dan kedekatan dengan kamera (bayangan kelir menjadi lebih besar dan lembut).
 - **Balik Telapak Tangan**: Membalik arah hadap wayang secara otomatis saat telapak tangan dibalik menghadap/membelakangi kamera.
 - **Pengendali Tuding (Lengan)**: Menggunakan **Jempol + Kelingking** secara alami layaknya dalang memegang tuding bambu.
 
-### 2. 🎵 Gerak Otomatis Ritmik Gamelan (*Idle Auto-Motion*)
-- Bila tangan dalang tidak bergerak selama ~2,2 detik, kedua wayang akan **otomatis bergerak dan menari mengikuti irama gamelan (*wirama*)**.
+### 2. 🎵 Gerak Otomatis Ritmik Gamelan (_Idle Auto-Motion_)
+
+- Bila tangan dalang tidak bergerak selama ~2,2 detik, kedua wayang akan **otomatis bergerak dan menari mengikuti irama gamelan (_wirama_)**.
 - Gerakan kedua wayang **asimetris dan berkarakter unik**:
-  - **Raden Bima (*Gagahan*)**: Tegak, mantap, melangkah berwibawa dalam siklus 4 dan 8 ketukan (*gongan*), tuding menuding ke depan.
-  - **Prabu Rahwana (*Kasar / Buta*)**: Liar, dinamis, kepala bergetar amarah, kedua lengan mengacung garang menantang lawan.
+  - **Raden Bima (_Gagahan_)**: Tegak, mantap, melangkah berwibawa dalam siklus 4 dan 8 ketukan (_gongan_), tuding menuding ke depan.
+  - **Prabu Rahwana (_Kasar / Buta_)**: Liar, dinamis, kepala bergetar amarah, kedua lengan mengacung garang menantang lawan.
 
-### 3. 💥 Jurus Kasekten & Aji-aji Sakti (*Special FX*)
-- **Bima [Tombol J]**: Jurus *Kuku Pancanaka* & *Gada Rujakpala* (kilatan petir emas-oranye, guncangan layar panggung, dan lontaran partikel energi prana).
-- **Rahwana [Tombol L]**: Aji-aji *Pancasona* & *Rawarontek* (semburan api magis merah keunguan, aura kegelapan menyala, dan raungan suara dahsyat).
+### 3. 💥 Jurus Kasekten & Aji-aji Sakti (_Special FX_)
 
-### 4. 🌅 Tata Cahaya Kelir Dinamis (*Atmospheric Lighting*)
+- **Bima [Tombol J]**: Jurus _Kuku Pancanaka_ & _Gada Rujakpala_ (kilatan petir emas-oranye, guncangan layar panggung, dan lontaran partikel energi prana).
+- **Rahwana [Tombol L]**: Aji-aji _Pancasona_ & _Rawarontek_ (semburan api magis merah keunguan, aura kegelapan menyala, dan raungan suara dahsyat).
+
+### 4. 🌅 Tata Cahaya Kelir Dinamis (_Atmospheric Lighting_)
+
 - Tekan **[B]** untuk mengganti suasana panggung:
-  - **Malam Klasik**: Kelir temaram dengan nyala lampu *blencong* minyak kelapa hangat berkelip (*candle flicker*).
+  - **Malam Klasik**: Kelir temaram dengan nyala lampu _blencong_ minyak kelapa hangat berkelip (_candle flicker_).
   - **Senja Mistis**: Langit tembaga keemasan dengan bayangan pekat dramatis.
   - **Siang Cerah**: Terang benderang untuk latihan detail gerak anatomi wayang.
 
-### 5. 📽️ Perekam Pertunjukan (*Video Recorder*)
+### 5. 📽️ Perekam Pertunjukan (_Video Recorder_)
+
 - Tekan **[R]** untuk merekam lakon dalang langsung ke berkas video resolusi tinggi (`.webm`).
 - Sangat cocok untuk tugas sekolah seni budaya, ujian praktik kejuruan, dokumentasi pentas, maupun konten edukasi media sosial.
 
-### 6. 🍃 Gunungan Buka & Tutup (*Kayon*)
-- Tekan **[Spasi]** untuk menancapkan Gunungan di tengah kelir panggung sebagai tanda pembuka atau penutup lakon (*tancep kayon*).
+### 6. 🍃 Gunungan Buka & Tutup (_Kayon_)
+
+- Tekan **[Spasi]** untuk menancapkan Gunungan di tengah kelir panggung sebagai tanda pembuka atau penutup lakon (_tancep kayon_).
 
 ---
 
 ## 🚀 Panduan Menjalankan Aplikasi
 
 ### Opsi A: Pengguna Windows (Paket Rilis 1-Klik)
+
 1. Unduh paket rilis `.zip` dari halaman GitHub Releases.
 2. Ekstrak seluruh isi folder ZIP ke komputer Anda.
 3. Klik ganda berkas **`MULAI-WAYANG.bat`**.
@@ -64,9 +71,10 @@ Aplikasi ini dirancang **100% luring (offline)** tanpa ketergantungan internet, 
 5. Klik tombol **"Mulai kamera"** dan izinkan akses webcam. Panggung wayang siap dimainkan!
 
 ### Opsi B: Pengembang & Pengguna Git (Developer)
+
 1. Klon repositori ini:
    ```bash
-   git clone https://github.com/smktjptuban/wayang-digital.git
+   git clone https://github.com/dhidhin/wayang-digital.git
    cd wayang-digital
    ```
 2. Jalankan server lokal:
@@ -85,26 +93,28 @@ Aplikasi ini dirancang **100% luring (offline)** tanpa ketergantungan internet, 
 ## 🎮 Panduan Kendali & Tombol Pintas
 
 ### Kendali Tangan (Webcam AI)
-| Gerakan Tangan Dalang | Efek pada Wayang di Layar |
-| :--- | :--- |
-| **Geser Telapak Tangan** | Menggerakkan badan wayang (*gapit*) ke segala arah |
-| **Maju / Mundur ke Kamera** | Mengatur jarak wayang ke kelir (efek bayangan *blencong*) |
-| **Balik Arah Telapak** | Membalik arah hadap wayang (menghadap kiri / kanan) |
-| **Ujung Jempol (Thumb)** | Menggerakkan lengan depan wayang (*forearm*) |
-| **Ujung Kelingking (Pinky)** | Menggerakkan lengan belakang wayang (*forearm*) |
+
+| Gerakan Tangan Dalang        | Efek pada Wayang di Layar                                 |
+| :--------------------------- | :-------------------------------------------------------- |
+| **Geser Telapak Tangan**     | Menggerakkan badan wayang (_gapit_) ke segala arah        |
+| **Maju / Mundur ke Kamera**  | Mengatur jarak wayang ke kelir (efek bayangan _blencong_) |
+| **Balik Arah Telapak**       | Membalik arah hadap wayang (menghadap kiri / kanan)       |
+| **Ujung Jempol (Thumb)**     | Menggerakkan lengan depan wayang (_forearm_)              |
+| **Ujung Kelingking (Pinky)** | Menggerakkan lengan belakang wayang (_forearm_)           |
 
 ### Tombol Pintas Keyboard
-| Tombol | Fungsi |
-| :---: | :--- |
-| `[Spasi]` | Tancapkan / Cabut Gunungan (*Tancep Kayon*) |
-| `[M]` | Nyalakan / Matikan Musik Gamelan (*Backsound*) |
-| `[B]` | Ganti Suasana Kelir (*Malam / Senja / Siang*) |
-| `[J]` | Jurus Kasekten Wayang Kiri (Raden Bima) |
-| `[L]` | Jurus Kasekten Wayang Kanan (Prabu Rahwana) |
-| `[R]` | Mulai / Berhenti Rekam Video Pertunjukan (*Export WebM*) |
-| `[H]` | Sembunyikan / Tampilkan Antarmuka Dalang (*Clean View*) |
-| `[F]` | Tampilan Layar Penuh (*Fullscreen*) |
-| `[C]` | Buka Pratinjau Kamera di Jendela Terpisah (*Dual Monitor*) |
+
+|  Tombol   | Fungsi                                                     |
+| :-------: | :--------------------------------------------------------- |
+| `[Spasi]` | Tancapkan / Cabut Gunungan (_Tancep Kayon_)                |
+|   `[M]`   | Nyalakan / Matikan Musik Gamelan (_Backsound_)             |
+|   `[B]`   | Ganti Suasana Kelir (_Malam / Senja / Siang_)              |
+|   `[J]`   | Jurus Kasekten Wayang Kiri (Raden Bima)                    |
+|   `[L]`   | Jurus Kasekten Wayang Kanan (Prabu Rahwana)                |
+|   `[R]`   | Mulai / Berhenti Rekam Video Pertunjukan (_Export WebM_)   |
+|   `[H]`   | Sembunyikan / Tampilkan Antarmuka Dalang (_Clean View_)    |
+|   `[F]`   | Tampilan Layar Penuh (_Fullscreen_)                        |
+|   `[C]`   | Buka Pratinjau Kamera di Jendela Terpisah (_Dual Monitor_) |
 
 ---
 
@@ -156,7 +166,8 @@ Wayang-Digital-Offline-Windows/
 - **Institusi**: [SMK Taruna Jaya Prawira Tuban](https://smktjptuban.sch.id/)
 - **Tahun Pembuatan**: 2026
 - **Lisensi**: [MIT License](LICENSE)
-- **Tujuan**: Pendidikan kejuruan, pelestarian seni budaya tradisional Jawa berbasis teknologi kecerdasan buatan (*AI-powered cultural preservation*).
+- **Tujuan**: Pendidikan kejuruan, pelestarian seni budaya tradisional Jawa berbasis teknologi kecerdasan buatan (_AI-powered cultural preservation_).
 
 ---
-*Mugi pagelaran menika saget ngrembakakaken budaya adiluhung nusantara.*
+
+_Mugi pagelaran menika saget ngrembakakaken budaya adiluhung nusantara._
