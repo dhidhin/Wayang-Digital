@@ -121,7 +121,7 @@ Aplikasi ini dirancang **100% luring (offline)** tanpa ketergantungan internet, 
 ## 📁 Struktur Direktori Proyek
 
 ```
-Wayang-Digital-Offline-Windows/
+Wayang-Digital/
 │
 ├── MULAI-WAYANG.bat       # Peluncur utama 1-klik untuk Windows
 ├── server.py              # Server HTTP lokal Python offline
@@ -163,7 +163,7 @@ Wayang-Digital-Offline-Windows/
 
 ## 🏛️ Identitas & Hak Cipta
 
-- **Institusi**: [SMK Taruna Jaya Prawira Tuban](https://smktjptuban.sch.id/)
+- **Institusi**: [SMK Taruna Jaya Prawira Tuban](https://smktjp.sch.id/)
 - **Tahun Pembuatan**: 2026
 - **Lisensi**: [MIT License](LICENSE)
 - **Tujuan**: Pendidikan kejuruan, pelestarian seni budaya tradisional Jawa berbasis teknologi kecerdasan buatan (_AI-powered cultural preservation_).
