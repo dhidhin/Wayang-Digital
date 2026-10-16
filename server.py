@@ -4,7 +4,7 @@ WAYANG DIGITAL - SMK TARUNA JAYA PRAWIRA TUBAN
 Local web server for the offline interactive AI puppet theater package.
 """
 from functools import partial
-from http.server import SimpleHTTPHandler, ThreadingHTTPServer
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import threading
 import webbrowser
@@ -12,9 +12,9 @@ import sys
 
 ROOT = Path(__file__).resolve().parent / 'web'
 
-class Handler(SimpleHTTPHandler):
+class Handler(SimpleHTTPRequestHandler):
     extensions_map = {
-        **SimpleHTTPHandler.extensions_map,
+        **SimpleHTTPRequestHandler.extensions_map,
         '.mjs': 'text/javascript',
         '.js': 'text/javascript',
         '.wasm': 'application/wasm',
